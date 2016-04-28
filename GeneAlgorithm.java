@@ -181,11 +181,29 @@ public class GeneAlgorithm extends Thread{
 				parent_pool.add(ids.get(id_n));
 				list.remove(index);	
 			}
+			
+			System.out.println("parent is.....");
+			for(int j = 0; j < parent_pool.size(); j++){
+				System.out.println(parent_pool.get(j).getCityOrder());
+			}
+			
+			ArrayList[] swap_element = new ArrayList[GeneAlgorithmConst.CROSSING];
+			Invidual tmp = new Invidual();
+			ArrayList<Invidual> childs = new ArrayList<Invidual>();
 			// 部分配列抽出
 			for(int j = 0; j < GeneAlgorithmConst.CROSSING; j++){
 				ArrayList<Integer> sublist = new ArrayList<Integer>(parent_pool.get(j).getCityOrder().subList(2, 10));
-				// 親１と親２の部分配列を比較。
+				for(int k = 0; k < sublist.size(); k++){
+					swap_element[k] = new ArrayList();
+					swap_element[k].add(sublist.get(k));
+//					tmp.addCityOrder();
+				}
+//				childs.add(tmp);
 			}
+			
+			// 比較
+			
+			
 			parent_pool.clear();
 		}
 

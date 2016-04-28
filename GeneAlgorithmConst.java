@@ -7,4 +7,5 @@ public class GeneAlgorithmConst {
 	public static final int X = 300;
 	public static final int Y = 300;
 	public static final int INVIDUALS = 12;
+	public static final int CROSSING = 2;
 }

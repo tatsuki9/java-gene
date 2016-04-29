@@ -8,4 +8,6 @@ public class GeneAlgorithmConst {
 	public static final int Y = 300;
 	public static final int INVIDUALS = 12;
 	public static final int CROSSING = 2;
+	public static final int CROSSING_ELEMENT_START = 2;
+	public static final int CROSSING_ELEMENT_END = 10;
 }

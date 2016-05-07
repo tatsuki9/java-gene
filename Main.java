@@ -1,10 +1,13 @@
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Container;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
@@ -40,7 +43,9 @@ public class Main extends JFrame implements ActionListener{
 		start.setMargin(new Insets(10,10,10,10));
 		start.addActionListener(this);
 		contentPane.add(start, BorderLayout.SOUTH);
-		
+		// アルゴリズムクラスのメンバにパネル情報持たせる
+		ge.setMainPanel(m_pn);
+				
 		// 終了ボタン
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		// 表示場所,大きさ

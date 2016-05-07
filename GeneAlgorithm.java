@@ -85,9 +85,6 @@ public class GeneAlgorithm extends Thread{
 			e.getMessage();
 		}
 		
-		for(int i = 0; i < ids.size(); i++){
-			System.out.println(ids.get(i).getCityOrder());
-		}
 		// 最適化経路入手
 		Invidual optimized_id = this.appreciate_gene(ids);
 		this.setInvidual(optimized_id);
@@ -125,13 +122,7 @@ public class GeneAlgorithm extends Thread{
 			}
 			// 評価値を降順にソート
 			Collections.sort(ids, new GeneAlgorithmComparator());
-			
-			for(int i = 0; i < ids.size(); i++){
-				System.out.printf("%d : %f ", ids.get(i).getTotalLength(), ids.get(i).getPoint());
-				System.out.print(ids.get(i).getCityOrder());
-				System.out.println();
-			}
-			System.out.println();
+
 			// 交叉
 			this.crossing(ids);
 		}
@@ -176,6 +167,43 @@ public class GeneAlgorithm extends Thread{
 			this.create_parentpool_and_base_childs(parent_pool, childs, ids, list);
 			// 部分配列抽出
 			ArrayList[] swap_element = this.extract_sublist(parent_pool);
+			/*
+			 * (1)親ペア3つ
+			 * array(
+			 * 		array(1,3,4,6,8),
+			 * 		array(2,4,6,9,1)
+			 * ),
+			 * array(
+			 * 		array(1,3,4,6,8),
+			 * 		array(2,4,6,9,1)
+			 * ),
+			 * array(
+			 * 		array(1,3,4,6,8),
+			 * 		array(2,4,6,9,1)
+			 * ),
+			 * (2)上記の大枠の配列3つに対して、それぞれの子配列の要素ごとにペアを作っていく
+			 * swap_map[i][j] = array(
+			 * 		array(1,2),
+			 * 		array(3,4),
+			 * 		array(4,6),
+			 * 		array(6,9),
+			 * 		array(8,1),
+			 * ),
+			 * array(
+			 * 		array(1,2),
+			 * 		array(3,4),
+			 * 		array(4,6),
+			 * 		array(6,9),
+			 * 		array(8,1),
+			 * ),
+			 * array(
+			 * 		array(1,2),
+			 * 		array(3,4),
+			 * 		array(4,6),
+			 * 		array(6,9),
+			 * 		array(8,1),
+			 * ),
+			 */
 			// 要素番号ごとにマージしていく
 			for(int j = 0; j < GeneAlgorithmConst.CROSSING_ELEMENT_END - GeneAlgorithmConst.CROSSING_ELEMENT_START; j++){
 				swap_map[i][j] = new ArrayList();
